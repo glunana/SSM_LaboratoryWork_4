@@ -85,6 +85,48 @@ def antitransitivity(matrix):
 
 print("Відношення є антитранзитивне: ", antitransitivity(matrix))
 
+def equivalence(matrix):
+    if symmetry(matrix) and reflexivity(matrix) and transitivity(matrix):
+        return True
+    else:
+        return False
+
+print("Відношення є еквівалентним: ", equivalence(matrix))
+
+def partialOrder(matrix):
+    if reflexivity(matrix) and antisymmetry(matrix) and transitivity(matrix):
+        return True
+    else:
+        return False
+
+print("Відношення є частковим порядком: ", partialOrder(matrix))
+
+def strictOrder(matrix):
+    if antireflexivity(matrix) and antisymmetry(matrix) and transitivity(matrix):
+        return True
+    else:
+        return False
+
+print("Відношення є строгим порядком: ", strictOrder(matrix))
+
+def reflexivMatrix (manrix):
+    n = len(matrix)
+
+    for i in range(n):
+        matrix[i][i] = 1
+
+reflexivMatrix(matrix)
+print("Рефлексивне замикання: ")
+
+for row in matrix:
+    print(row)
+
+
+
+
+
+
+
 
 
 
