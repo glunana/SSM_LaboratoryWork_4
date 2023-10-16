@@ -109,19 +109,38 @@ def strictOrder(matrix):
 
 print("Відношення є строгим порядком: ", strictOrder(matrix))
 
-def reflexivMatrix (manrix):
+
+def reflexivMatrix (matrix):
+
+    matrixR = [row[:] for row in matrix]
+    n = len(matrixR)
+
+    for i in range(n):
+        matrixR[i][i] = 1
+    return matrixR
+
+print("Рефлексивне замикання: ")
+matrixR = reflexivMatrix(matrix)
+
+for row in matrixR:
+    print(row)
+
+def symmetryMatrix(matrix):
+
+    matrixS = [row[:] for row in matrix]
     n = len(matrix)
 
     for i in range(n):
-        matrix[i][i] = 1
+        for j in range(n):
+            if matrixS[i][j] == 1:
+                matrixS[j][i] = 1
+    return matrixS
 
-reflexivMatrix(matrix)
-print("Рефлексивне замикання: ")
+print("Симетричне замикання: ")
+matrixS = symmetryMatrix(matrix)
 
-for row in matrix:
+for row in matrixS:
     print(row)
-
-
 
 
 
