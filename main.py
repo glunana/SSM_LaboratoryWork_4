@@ -142,6 +142,56 @@ matrixS = symmetryMatrix(matrix)
 for row in matrixS:
     print(row)
 
+def transitivityMatrix(matrix):
+    matrixT = [row[:] for row in matrix]
+    n = len(matrix)
+
+    for i in range(n):
+        for j in range(n):
+            if matrixT[i][j] == 1:
+                for k in range(n):
+                    if matrixT[j][k] == 1 and matrixT[i][k] == 0:
+                        matrixT[i][k] = 1
+    return matrixT
+
+print("Транзитивне замикання: ")
+matrixT = transitivityMatrix(matrix)
+
+for row in matrixT:
+    print(row)
+
+def squareMatrix(matrix):
+    n = len(matrix)
+    matrixSq = [[0 for _ in range(n)] for _ in range(n)]
+
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                matrixSq[i][j] = matrixSq[i][j] or (matrix[i][k] and matrix[k][j])
+
+    return matrixSq
+
+print("2 степінь: ")
+matrixSq = squareMatrix(matrix)
+
+for row in matrixSq:
+    print(row)
+
+def cubedMatrix(matrix):
+    matrixSq = squareMatrix(matrix)
+
+    matrixCu = squareMatrix(matrixSq)
+    return matrixCu
+
+print("3 степінь: ")
+matrixCu = cubedMatrix(matrix)
+
+for row in matrixCu:
+    print(row)
+
+
+
+
 
 
 
